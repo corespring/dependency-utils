@@ -1,4 +1,4 @@
-package com.ahum
+package com.ahum.deps
 
 import org.specs2.mutable.Specification
 
