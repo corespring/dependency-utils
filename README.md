@@ -1,4 +1,4 @@
-# Sorting Utils
+# Dependency Utils
 
 A simple sorting util library.
 
