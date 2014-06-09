@@ -1,11 +1,12 @@
 package com.ahum.deps
-
 import scala.annotation.tailrec
-import org.slf4j.{Logger, LoggerFactory}
+
+import com.typesafe.scalalogging.slf4j.Logger
+import org.slf4j.LoggerFactory
 
 object TopologicalSorter {
 
-  lazy val logger : Logger = LoggerFactory.getLogger("com.ahum.deps.TopologicalSorter")
+  val logger = Logger(LoggerFactory.getLogger("com.ahum.deps.TopologicalSorter"))
 
   def sort[T](nodes: (T, Seq[T])*): Seq[(T, Seq[T])] = {
 
@@ -16,8 +17,8 @@ object TopologicalSorter {
     @tailrec
     def innerSort(raw: Seq[DepNode], acc: Seq[DepNode]): Seq[DepNode] = {
 
-      logger.trace("innerSort raw", raw)
-      logger.trace("innerSort acc", acc)
+      logger.trace(s"innerSort raw $raw")
+      logger.trace(s"innerSort acc $acc")
 
       def onEdge(t: DepNode) = {
 

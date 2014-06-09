@@ -5,8 +5,8 @@ import sbtrelease.ReleasePlugin._
 object Build extends sbt.Build {
 
   object Dependencies {
-    lazy val specs2 = "org.specs2" %% "specs2" % "2.3.12"
-    lazy val logback = "ch.qos.logback" % "logback-classic" % "1.1.2"
+    val specs2 = "org.specs2" %% "specs2" % "2.3.12"
+    val scalaLogging = "com.typesafe.scala-logging" %% "scala-logging-slf4j" % "2.1.2"
   }
 
   import Dependencies._
@@ -18,7 +18,7 @@ object Build extends sbt.Build {
       name := "dependency-utils",
       organization := "com.ahum",
       scalaVersion := "2.10.3",
-      libraryDependencies ++= Seq(specs2 % "test", logback),
+      libraryDependencies ++= Seq(specs2 % "test", scalaLogging),
       publishMavenStyle := true,
       publishTo <<= version {
         (v: String) =>
